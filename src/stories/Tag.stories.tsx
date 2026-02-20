@@ -20,6 +20,12 @@ const meta = {
     split: {
       control: 'boolean',
     },
+    rounded: {
+      control: 'boolean',
+    },
+    showMeta: {
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Tag>;
 
