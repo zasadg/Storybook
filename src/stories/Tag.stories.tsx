@@ -17,61 +17,35 @@ const meta = {
       control: 'select',
       options: ['sm', 'md', 'lg'],
     },
+    split: {
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Tag>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const OutlineDefault: Story = {
+export const Outline: Story = {
   args: {
     label: 'Indoors',
     variant: 'outline',
     size: 'md',
     meta: '0:06 - 0:21',
     showChevron: true,
+    split: false,
     icon: <AudioWaveIcon />,
   },
 };
 
-export const OutlineNoMeta: Story = {
-  args: {
-    label: 'Outdoors',
-    variant: 'outline',
-    size: 'md',
-    icon: <AudioWaveIcon />,
-  },
-};
-
-export const SolidDefault: Story = {
+export const Solid: Story = {
   args: {
     label: 'Indoors',
     variant: 'solid',
     size: 'md',
     meta: '0:06 - 0:21',
     showChevron: true,
-    icon: <AudioWaveIcon />,
-  },
-};
-
-export const Small: Story = {
-  args: {
-    label: 'Indoors',
-    variant: 'outline',
-    size: 'sm',
-    meta: '0:06 - 0:21',
-    showChevron: true,
-    icon: <AudioWaveIcon />,
-  },
-};
-
-export const Large: Story = {
-  args: {
-    label: 'Indoors',
-    variant: 'outline',
-    size: 'lg',
-    meta: '0:06 - 0:21',
-    showChevron: true,
+    split: false,
     icon: <AudioWaveIcon />,
   },
 };

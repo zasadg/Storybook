@@ -12,6 +12,8 @@ export interface TagProps {
   meta?: string;
   /** Show a chevron-down icon at the end */
   showChevron?: boolean;
+  /** Separate the chevron with a vertical divider (split button style) */
+  split?: boolean;
   /** Optional icon rendered before the label */
   icon?: React.ReactNode;
   /** If provided, the tag becomes clickable */
@@ -44,6 +46,7 @@ export const Tag = ({
   size = 'md',
   meta,
   showChevron = false,
+  split = false,
   icon,
   onClick,
 }: TagProps) => {
@@ -51,6 +54,7 @@ export const Tag = ({
     'tag',
     `tag--${variant}`,
     `tag--${size}`,
+    split ? 'tag--split' : '',
     onClick ? 'tag--clickable' : '',
   ]
     .filter(Boolean)
@@ -68,12 +72,14 @@ export const Tag = ({
         {icon && <span className="tag-icon">{icon}</span>}
         <span className="tag-label">{label}</span>
         {meta && <span className="tag-meta">{meta}</span>}
-        {showChevron && (
+      </div>
+      {showChevron && (
+        <div className={split ? 'tag-split' : 'tag-chevron-wrap'}>
           <span className="tag-chevron">
             <ChevronDownIcon />
           </span>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
