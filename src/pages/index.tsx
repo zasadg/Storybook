@@ -1,78 +1,210 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import { Tag, AudioWaveIcon } from "@/stories/Tag";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={`${geistSans.variable} showcase-page`}>
+      <main className="showcase-main">
+        <header className="showcase-header">
+          <h1 className="showcase-title">Tag Component</h1>
+          <p className="showcase-description">
+            A compact tag for labeling content with optional icon, metadata, and chevron.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </header>
+
+        <section className="showcase-section">
+          <h2 className="section-title">Variants</h2>
+          <div className="tag-row">
+            <div className="tag-demo">
+              <span className="demo-label">Outline</span>
+              <Tag
+                label="Indoors"
+                variant="outline"
+                meta="0:06 - 0:21"
+                showChevron
+                icon={<AudioWaveIcon />}
+              />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">Solid</span>
+              <Tag
+                label="Indoors"
+                variant="solid"
+                meta="0:06 - 0:21"
+                showChevron
+                icon={<AudioWaveIcon />}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="showcase-section">
+          <h2 className="section-title">Sizes</h2>
+          <div className="tag-row tag-row--align-center">
+            <div className="tag-demo">
+              <span className="demo-label">Small</span>
+              <Tag label="Indoors" variant="outline" size="sm" meta="0:06 - 0:21" showChevron icon={<AudioWaveIcon />} />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">Medium</span>
+              <Tag label="Indoors" variant="outline" size="md" meta="0:06 - 0:21" showChevron icon={<AudioWaveIcon />} />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">Large</span>
+              <Tag label="Indoors" variant="outline" size="lg" meta="0:06 - 0:21" showChevron icon={<AudioWaveIcon />} />
+            </div>
+          </div>
+        </section>
+
+        <section className="showcase-section">
+          <h2 className="section-title">Content Options</h2>
+          <div className="tag-row tag-row--wrap">
+            <div className="tag-demo">
+              <span className="demo-label">Label only</span>
+              <Tag label="Nature" variant="outline" />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">With icon</span>
+              <Tag label="Indoors" variant="outline" icon={<AudioWaveIcon />} />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">With meta</span>
+              <Tag label="Indoors" variant="outline" meta="0:06 - 0:21" />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">Full</span>
+              <Tag label="Indoors" variant="outline" meta="0:06 - 0:21" showChevron icon={<AudioWaveIcon />} />
+            </div>
+          </div>
+        </section>
+
+        <section className="showcase-section">
+          <h2 className="section-title">Clickable</h2>
+          <div className="tag-row">
+            <div className="tag-demo">
+              <span className="demo-label">Outline clickable</span>
+              <Tag
+                label="Indoors"
+                variant="outline"
+                meta="0:06 - 0:21"
+                showChevron
+                icon={<AudioWaveIcon />}
+                onClick={() => alert('Tag clicked!')}
+              />
+            </div>
+            <div className="tag-demo">
+              <span className="demo-label">Solid clickable</span>
+              <Tag
+                label="Indoors"
+                variant="solid"
+                meta="0:06 - 0:21"
+                showChevron
+                icon={<AudioWaveIcon />}
+                onClick={() => alert('Tag clicked!')}
+              />
+            </div>
+          </div>
+        </section>
       </main>
+
+      <style jsx>{`
+        .showcase-page {
+          min-height: 100vh;
+          background: #fafafa;
+          font-family: var(--font-geist-sans), -apple-system, sans-serif;
+        }
+
+        .showcase-main {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 64px 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 48px;
+        }
+
+        .showcase-header {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .showcase-title {
+          font-size: 32px;
+          font-weight: 700;
+          color: #09090b;
+          margin: 0;
+        }
+
+        .showcase-description {
+          font-size: 16px;
+          color: #71717a;
+          margin: 0;
+        }
+
+        .showcase-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .section-title {
+          font-size: 14px;
+          font-weight: 600;
+          color: #71717a;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          margin: 0;
+          padding-bottom: 12px;
+          border-bottom: 1px solid #e4e4e7;
+        }
+
+        .tag-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+
+        .tag-row--align-center {
+          align-items: center;
+        }
+
+        .tag-row--wrap {
+          flex-wrap: wrap;
+        }
+
+        .tag-demo {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .demo-label {
+          font-size: 12px;
+          font-weight: 500;
+          color: #a1a1aa;
+        }
+
+        @media (max-width: 480px) {
+          .showcase-main {
+            padding: 32px 16px;
+            gap: 32px;
+          }
+
+          .showcase-title {
+            font-size: 24px;
+          }
+
+          .tag-row {
+            gap: 16px;
+          }
+        }
+      `}</style>
     </div>
   );
 }

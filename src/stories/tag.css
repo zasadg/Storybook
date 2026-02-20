@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --tag-spacing-xs: 4px;
+  --tag-spacing-sm: 8px;
+  --tag-radius: 12px;
+  --tag-border-color: #E4E4E7;
+  --tag-bg-accent: #F4F4F5;
+  --tag-bg-solid: #18181B;
+  --tag-text-primary: #09090B;
+  --tag-text-muted: #71717A;
+  --tag-text-on-solid: #FAFAFA;
+}
+
+/* Base tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tag-spacing-sm);
+  border-radius: var(--tag-radius);
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  cursor: default;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.tag:focus-visible {
+  outline: 2px solid var(--tag-text-primary);
+  outline-offset: 2px;
+}
+
+/* Variants */
+.tag--outline {
+  padding: var(--tag-spacing-xs) var(--tag-spacing-sm);
+  background: var(--tag-bg-accent);
+  border: 1px solid var(--tag-border-color);
+  color: var(--tag-text-primary);
+}
+
+.tag--solid {
+  padding: var(--tag-spacing-xs) var(--tag-spacing-sm);
+  background: var(--tag-bg-solid);
+  border: 1px solid transparent;
+  color: var(--tag-text-on-solid);
+}
+
+/* Sizes */
+.tag--sm {
+  padding: 2px 6px;
+  gap: 6px;
+}
+
+.tag--sm .tag-label {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tag--sm .tag-meta {
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.tag--sm .tag-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tag--sm .tag-chevron {
+  width: 16px;
+  height: 16px;
+}
+
+.tag--md {
+  padding: var(--tag-spacing-xs) var(--tag-spacing-sm);
+  gap: var(--tag-spacing-sm);
+}
+
+.tag--lg {
+  padding: 6px 12px;
+  gap: 10px;
+}
+
+.tag--lg .tag-label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.tag--lg .tag-meta {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tag--lg .tag-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.tag--lg .tag-chevron {
+  width: 24px;
+  height: 24px;
+}
+
+/* Inner layout */
+.tag-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--tag-spacing-sm);
+  padding: var(--tag-spacing-xs) 0;
+}
+
+.tag--sm .tag-inner {
+  gap: 6px;
+  padding: 0;
+}
+
+.tag--lg .tag-inner {
+  gap: 10px;
+}
+
+/* Icon */
+.tag-icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tag--solid .tag-icon svg path {
+  fill: var(--tag-text-on-solid);
+}
+
+/* Label */
+.tag-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--tag-text-primary);
+}
+
+.tag--solid .tag-label {
+  color: var(--tag-text-on-solid);
+}
+
+/* Meta text */
+.tag-meta {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--tag-text-muted);
+  opacity: 0.8;
+}
+
+.tag--solid .tag-meta {
+  color: var(--tag-text-on-solid);
+  opacity: 0.6;
+}
+
+/* Chevron */
+.tag-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.tag--solid .tag-chevron svg path {
+  fill: var(--tag-text-on-solid);
+  stroke: var(--tag-text-on-solid);
+}
+
+/* Clickable tag */
+.tag--clickable {
+  cursor: pointer;
+}
+
+.tag--clickable:hover {
+  opacity: 0.8;
+}
