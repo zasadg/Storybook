@@ -1,0 +1,341 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-sound-modal {
+    background: #FFFFFF;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9CA3AF;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #374151;
+}
+
+.modal-content {
+    padding: 24px;
+}
+
+.track-info {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.album-art {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.track-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.track-title {
+    font-weight: 500;
+    color: #111827;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.track-artist {
+    color: #6B7280;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drag-instruction {
+    text-align: center;
+    color: #6B7280;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.waveform-container {
+    height: 160px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.waveform-viz {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    width: 100%;
+}
+
+.waveform-bar {
+    flex: 1;
+    background: #E5E7EB;
+    border-radius: 4px;
+}
+
+.waveform-selector {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    background: rgba(167, 243, 208, 0.5);
+    /* Minty transparent overlay */
+    border: 1px solid #10B981;
+    border-radius: 8px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+    z-index: 10;
+}
+
+.waveform-selector:active {
+    cursor: grabbing;
+}
+
+.grab-handle {
+    display: grid;
+    grid-template-columns: repeat(2, 4px);
+    gap: 2px;
+}
+
+.grab-dot {
+    width: 4px;
+    height: 4px;
+    background: #064E3B;
+    border-radius: 50%;
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-label {
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.time-input {
+    width: 64px;
+    height: 36px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.upload-link {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-footer {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #F3F4F6;
+}
+
+.btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: none;
+    border: 1px solid #E5E7EB;
+    color: #374151;
+}
+
+.btn-cancel:hover {
+    background: #F9FAFB;
+}
+
+.btn-save {
+    background: #18181B;
+    border: 1px solid #18181B;
+    color: #FFFFFF;
+}
+
+.btn-save:hover {
+    background: #000000;
+}
+
+.speaker-button {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #05F5A3 0%, #00D28E 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.speaker-button svg {
+    display: block;
+}
+
+/* Mobile Styles */
+.custom-sound-modal-mobile {
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 375px;
+    margin: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.custom-sound-modal-mobile .modal-content {
+    padding: 16px;
+}
+
+.custom-sound-modal-mobile .track-info {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.custom-sound-modal-mobile .track-title {
+    font-weight: 500;
+    color: #111827;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+    margin-bottom: 2px;
+}
+
+.custom-sound-modal-mobile .waveform-container {
+    height: 120px;
+}
+
+.custom-sound-modal-mobile .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.custom-sound-modal-mobile .time-label {
+    font-size: 13px;
+}
+
+.custom-sound-modal-mobile .time-input {
+    width: 56px;
+    height: 32px;
+}
+
+.custom-sound-modal-mobile .mobile-upload-row {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.custom-sound-modal-mobile .upload-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    background: transparent;
+    transition: background-color 0.2s;
+    padding-left: 0;
+}
+
+.custom-sound-modal-mobile .upload-link:hover {
+    background-color: #F4F4F5;
+}
+
+.custom-sound-modal-mobile .modal-footer {
+    padding: 16px;
+}
